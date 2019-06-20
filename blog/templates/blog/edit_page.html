@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增和修改页面</title>
+</head>
+<body>
+
+<!--如果在模板中放入不存在的对象 是不会报错的 只会输出一个空值  比如地下的隐藏id值 如果不存在我们需要在后端接收一个0 所以这里使用过滤器来实现   这里使用django的默认过滤器default-->
+<form action="{% url 'blog:addcontent' %}" method="post">
+    {% csrf_token %}
+        <input type="hidden" name="id" value="{{ show.id | default:'0'}}">
+    <p>
+        <label for="title">标题</label>
+        <input type="text" value="{{ show.title }}" name="title" placeholder="文章标题"/>
+    </p>
+    <br/>
+
+    <p>
+        <label for="content">文章内容</label>
+        <textarea name="content" id="" cols="30" rows="10">{{ show.content }}</textarea>
+    </p>
+
+    <p>
+        <button type="submit">提交</button>
+    </p>
+</form>
+</body>
+</html>

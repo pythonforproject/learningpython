@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面详情</title>
+</head>
+<body>
+   <h1>{{ pageshows.title }}</h1>
+   <hr/>
+   <p>{{ pageshows.content }}</p>
+   <br>
+   <a href="{% url 'blog:editpage' pageshows.id %}">修改文章</a>
+</body>
+</html>

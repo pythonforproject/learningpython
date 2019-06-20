@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adsad</title>
+</head>
+<body>
+<p>文章列表</p>
+{% for foo in alllist %}
+    <li>
+        <a href="{% url 'blog:show' foo.id %}">{{ foo.title }}</a>
+    </li>
+{% endfor %}
+
+
+<a href="{% url 'blog:editpage' 0 %}">添加新文章</a>
+</body>
+</html>

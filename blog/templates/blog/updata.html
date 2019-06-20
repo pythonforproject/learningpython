@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑页面</title>
+</head>
+<body>
+<form action="{% url 'blog:dataleast' %}" method="post">
+    {% csrf_token %}
+    <p>
+        <label for="title">标题</label>
+        <input type="hidden" name="id" value="{{ show.id }}">
+        <input type="text" name="title" value="{{ show.title }}" placeholder="文章标题"/>
+    </p>
+    <br/>
+
+    <p>
+        <label for="content">文章内容</label>
+        <textarea name="content" id="" cols="30" rows="10">{{ show.content }}</textarea>
+    </p>
+    <p>
+        <button type="submit">提交</button>
+    </p>
+</form>
+</body>
+</html>
